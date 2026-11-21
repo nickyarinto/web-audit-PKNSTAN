@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>PKN-STAN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wadah">
+
+  <header class="kepala">
+    <img class="logo" src="img/logo stan.png" alt="Logo PKN STAN" onerror="logoGagal(this)">
+    <div class="judul-web">
+      <h1>AYO, PANTAU!</h1>
+      <p class="tagline">Pantau Lebih Cermat, Cegah Kerugian Lebih Cepat.</p>
+    </div>
+  </header>
+
+  <ul class="nilai">
+    <li>Jujur</li>
+    <li>Transparan</li>
+    <li>Akuntabel</li>
+  </ul>
+
+  <section class="ringkasan">
+    <div class="angka"><b id="nTotal">0</b><small>Total</small></div>
+    <div class="angka hijau"><b id="nAman">0</b><small>Aman</small></div>
+    <div class="angka merah"><b id="nCuriga">0</b><small>Mencurigakan</small></div>
+  </section>
+
+  <section class="kotak">
+    <h2>Catat pembelian barang negara</h2>
+    <p class="petunjuk">Isi dengan pembelian barang untuk kepentingan negara atau anggaran dana.</p>
+
+    <div class="form">
+      <div class="penuh-hp">
+        <label for="pelaksana">Nama pelaksana transaksi :</label>
+        <input id="pelaksana" placeholder="Contoh: Budi Santoso">
+      </div>
+      <div class="penuh-hp">
+        <label for="barang">Barang yang dibeli :</label>
+        <input id="barang" placeholder="Contoh: Pembelian laptop untuk kantor desa">
+      </div>
+      <div>
+        <label for="nominal">Nominal (Rp) :</label>
+        <input id="nominal" type="number" inputmode="numeric" placeholder="450000">
+      </div>
+      <div>
+        <label for="jam">Jam (0-23) :</label>
+        <input id="jam" type="number" inputmode="numeric" placeholder="10" min="0" max="23">
+      </div>
+      <div class="penuh">
+        <button onclick="kirimForm()" style="width:100%">Catat transaksi</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="tombol-baris">
+    <button id="btnSimulasi" onclick="toggleSimulasi()">▶ Simulasi <i>real-time</i></button>
+    <button class="polos" onclick="hapusSemua()">Hapus Semua</button>
+  </div>
+
+  <div class="judul-daftar"><h2>Daftar transaksi :</h2></div>
+  <div id="daftar"></div>
+
+  <p class="catatan">
+    Dianggap mencurigakan apabila nominal di atas Rp20 juta, jam 00:00-04:59, atau transaksi duplikat.
+    Setiap transaksi tercatat atas nama pelaksananya.
+  </p>
+</div>
+
+<footer class="kaki">
+  <p>2026 © - Nicky Arinto</p>
+</footer>
+
+<div id="notif" role="status" aria-live="polite">
+  <strong id="notifJudul"></strong>
+  <span id="notifIsi"></span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
